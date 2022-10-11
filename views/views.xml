@@ -1,60 +1,54 @@
 <odoo>
   <data>
+      <record id="view_technical_support_form" model="ir.ui.view">
+            <field name="name">technical.support.form</field>
+            <field name="model">technical.support</field>
+            <field name="arch" type="xml">
+              <form string="Reclamos">
+                  <header>
+                      <field name="claim_stage" widget="statusbar" options="{'clickable': '0'}"/>
+                  </header>
+                  <sheet>
+                      <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group name="technical_support_header">
+                        <group>
+                            <field name="name" readonly="1"/>
+                        </group>
+                    </group>
+                  </sheet>
+
+              </form>
+            </field>
+    </record>
+
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="technical_support.list">
-      <field name="name">technical_support list</field>
-      <field name="model">technical_support.technical_support</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+    <record model="ir.actions.act_window" id="technical_support_action_window">
+      <field name="name">Soporte Técnico</field>
+      <field name="res_model">technical.support</field>
+      <field name="view_mode">tree,form,kanban</field>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+              Create a new claim
+          </p><p>
+              You must define a claim for everything you sell or purchase,
+              whether it's a storable product, a consumable or a service.
+          </p>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="technical_support.action_window">
-      <field name="name">technical_support window</field>
-      <field name="res_model">technical_support.technical_support</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="technical_support.action_server">
-      <field name="name">technical_support server</field>
-      <field name="model_id" ref="model_technical_support_technical_support"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="technical_support" id="technical_support.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="technical_support.menu_1" parent="technical_support.menu_root"/>
-    <menuitem name="Menu 2" id="technical_support.menu_2" parent="technical_support.menu_root"/>
--->
     <!-- actions -->
-<!--
-    <menuitem name="List" id="technical_support.menu_1_list" parent="technical_support.menu_1"
-              action="technical_support.action_window"/>
-    <menuitem name="Server to list" id="technical_support" parent="technical_support.menu_2"
-              action="technical_support.action_server"/>
--->
+    <menuitem name="Reclamos"
+              id="technical_support_menu_root"
+              web_icon="technical_support,static/description/icon.png"/>
+    <!-- menu categories -->
+    <menuitem name="Reclamos" id="technical_support_menu_1" parent="technical_support_menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="Lista" id="claims_menu_1_list" parent="technical_support_menu_1"
+              action="technical_support_action_window"/>
   </data>
 </odoo>

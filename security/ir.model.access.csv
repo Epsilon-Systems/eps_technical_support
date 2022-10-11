@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_technical_support_technical_support,technical_support.technical_support,model_technical_support_technical_support,base.group_user,1,1,1,1
+access_technical_support,technical_support,model_technical_support,base.group_user,1,1,1,1
+access_technical_data,technical_data,model_technical_data,base.group_user,1,1,1,1
+access_technical_replacement,technical_replacement,model_technical_replacement,base.group_user,1,1,1,1

@@ -1,30 +1,29 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "technical_support",
+    'name': "Technical Support",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Module in charge of registering tickets for technical support""",
 
     'description': """
-        Long description of module's purpose
+        Module that allows registering claims for services and assigning them to Helpdesk
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Anibal Arenas",
+    'website': "https://www.epsilonsystemsgroup.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
+    'category': 'Helpdesk',
+    'version': '15.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
